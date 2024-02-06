@@ -235,7 +235,14 @@ h6 {
   height: 100vh;
   background: url("../img/lene-portfolio.jpg") bottom right;
   background-size:cover;
-  
+  background-position: center 80%;
+}
+
+@media screen and (max-width: 768px){
+  #hero{
+    background-position: center ;
+    background-size:-70%;
+  }
 }
 
 #hero:before {
