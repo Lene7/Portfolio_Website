@@ -605,9 +605,8 @@ button:has(:last-child:active)::before {
 
 .portfolio-wrap img {
   width: 100%;
-  height: auto;
-  max-width: 1080px;
-  max-height: 1350px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .portfolio .portfolio-wrap:hover img {
