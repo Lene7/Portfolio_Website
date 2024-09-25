@@ -79,6 +79,9 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: top;
   border: 8px solid #B7C297;
 }
 
@@ -593,46 +596,44 @@ button:has(:last-child:active)::before {
   margin-right: 0;
 }
 
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
+.portfolio-wrap {
   position: relative;
   overflow: hidden;
-  z-index: 1;
   height: 300px;
+  transition: transform 1.3s ease-in-out;
 }
 
 .portfolio-wrap img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-width: 1080px;
+  max-height: 1350px;
 }
 
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.1);
 }
 
 .portfolio .portfolio-wrap .portfolio-links {
-  opacity: 1;
+  opacity: 0;
   left: 0;
   right: 0;
-  bottom: -60px;
-  z-index: 3;
+  bottom: 0px;
   position: absolute;
-  transition: all ease-in-out 0.3s;
+  z-index: 3;
+  transition: 0.3s ease-in-out;
+  text-align: center;
   display: flex;
   justify-content: center;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a {
+.portfolio .portfolio-wrap:hover .portfolio-links {
+  opacity: 1;
+  bottom: 0;
+  display: flex;
+}
+
+.portfolio .portfolio-links a {
   color: #fff;
   font-size: 28px;
   text-align: center;
@@ -641,25 +642,21 @@ button:has(:last-child:active)::before {
   width: 50%;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a:hover {
+.portfolio .portfolio-links a:hover {
   background: #717968;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a+a {
-  border-left: 1px solid #8F9984;
+/* For mobile responsiveness */
+@media (max-width: 767px) {
+  .portfolio .portfolio-item {
+    flex: 0 0 50%; /* Two columns on mobile */
+  }
 }
 
-.portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-links {
-  opacity: 1;
-  bottom: 0;
+@media (min-width: 768px) {
+  .portfolio .portfolio-item {
+    flex: 0 0 25%; /* Four columns on larger screens */
+  }
 }
 
 /*--------------------------------------------------------------
