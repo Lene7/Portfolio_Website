@@ -610,7 +610,7 @@ button:has(:last-child:active)::before {
 }
 
 .portfolio .portfolio-wrap:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .portfolio .portfolio-wrap .portfolio-links {
